@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nhóm 2</title>
+    <link rel="stylesheet" href="../css/cart.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="../js/banner.js" defer></script>
+    <script src="../js/SignUp_LogIn.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="banner">
+        <div class="bg active"></div>
+        <div class="bg"></div>
+        <div class="dots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+            </div>
+        <div class="nav">
+          <a href="TrangChu.html" class="linklogo">
+            <img src="../assets/images/logo.png" alt="" class="logo">
+          </a>
+          <ul class="menu">
+            <li><a href="TrangChu.html">Trang chủ</a></li>
+            <li><a href="BaoHangNgay.html">Báo hằng ngày</a></li>
+            <li><a href="#">Khuyến mãi</a></li>
+            <li><a href="#">Liên hệ</a></li>
+          </ul>
+          <form action="" class="search">
+            <input type="text" placeholder="Nhập từ khóa tìm kiếm...">
+            <button class="nut" href="#"><i class="fa fa-search"></i></button>
+          </form>
+          <a href="cart.html" class="user">Giỏ hàng</a>
+          <img src="../assets/images/User.png" alt="" class="userlogin">
+        </div>
+    </div>
+    <div class="SignUp_LogIn">
+          <div class="SignUp_LoginBox">
+            <div class="form-box login">
+              <form action="#">
+                <h1>Đăng Nhập</h1>
+                <div class="input-box">
+                  <input type="text" placeholder="Tên đăng nhập" required
+                  oninvalid="this.setCustomValidity('Tên đăng nhập không hợp lệ')" 
+                  oninput="this.setCustomValidity('')">
+                  <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                  <input type="password" placeholder="Mật khẩu" required
+                  oninvalid="this.setCustomValidity('Mật khẩu không hợp lệ')" 
+                  oninput="this.setCustomValidity('')">
+                  <i class='bx bxs-lock-alt' ></i>
+                </div>
+                <div class="forgot-link">
+                  <a href="#">Quên mật khẩu?</a>
+                </div>
+                <button type="submit" class="btn">Đăng Nhập</button>
+                <p>Hoặc đăng nhập bằng nền tảng khác</p>
+                <div class="social-icons">
+                  <a href="#"><i class='bx bxl-google' ></i></a>
+                  <a href="#"><i class='bx bxl-facebook' ></i></a>
+                  <a href="#"><i class='bx bxl-github' ></i></a>
+                  <a href="#"><i class='bx bxl-linkedin' ></i></a>
+                </div>
+              </form>
+            </div>  
+            <div class="form-box register">
+              <form action="#">
+                <h1>Đăng Ký</h1>
+                <div class="input-box">
+                  <input type="text" placeholder="Tên đăng nhập" required
+                  oninvalid="this.setCustomValidity('Tên đăng nhập không hợp lệ')" 
+                  oninput="this.setCustomValidity('')">
+                  <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                  <input type="email" placeholder="Email" required
+                  oninvalid="this.setCustomValidity('Email không hợp lệ')" 
+                  oninput="this.setCustomValidity('')">
+                  <i class='bx bxs-envelope' ></i>
+                </div>
+                <div class="input-box">
+                  <input type="password" placeholder="Mật khẩu" required
+                  oninvalid="this.setCustomValidity('Mật khẩu không hợp lệ')" 
+                  oninput="this.setCustomValidity('')">
+                  <i class='bx bxs-lock-alt' ></i>
+                </div>
+                <button type="submit" class="btn">Đăng Ký</button>
+                <p>Hoặc đăng ký bằng nền tảng khác</p>
+                <div class="social-icons">
+                  <a href="#"><i class='bx bxl-google' ></i></a>
+                  <a href="#"><i class='bx bxl-facebook' ></i></a>
+                  <a href="#"><i class='bx bxl-github' ></i></a>
+                  <a href="#"><i class='bx bxl-linkedin' ></i></a>
+                </div>
+              </form>
+            </div>
+            
+            <div class="toggle-box">
+              <div class="toggle-panel toggle-left">
+                <h1>Hello, Welcome!</h1>
+                <button class="btn register-btn">Đăng Ký</button>
+              </div>
+              
+              <div class="toggle-panel toggle-right">
+                <h1>Welcome Back!</h1>
+                <button class="btn login-btn">Đăng Nhập</button>
+              </div>
+            </div>
+          </div>
+        </div>
+  </header>
+<div class="main">
+    <div class="container">
+    <div class="section">
+      <div id="cart">
+        <h2>Giỏ hàng</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Tên</th>
+              <th>Giá</th>
+              <th>SL</th>
+              <th>Tổng</th>
+              <th>Xóa</th>
+            </tr>
+          </thead>
+          <tbody id="cart-items"></tbody>
+        </table>
+
+        <h3>Tổng tiền: <span id="total-price">0</span> đ</h3>
+
+        <button onclick="checkout()">Mua</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer id="footer">
+          <div class="top-footer">
+            <div class="footer-container">
+
+              <div class="footer-col">
+                <h3>Địa chỉ liên hệ</h3>
+                <ul>
+                  <li><i class="fa fa-map-marker"></i> 12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM</li>
+                  <li><i class="fa fa-map-marker"></i> Số 10 Nguyễn Văn Dung, Phường An Nhơn, Quận Gò Vấp, TP.HCM</li>
+                  <li><i class="fa fa-map-marker"></i> Số 20 Đường số 53, Phường An Hội Tây, Quận Gò Vấp, TP.HCM</li>
+                  <li><i class="fa fa-phone"></i> 028 3894 0390</li>
+                  <li><i class="fa fa-envelope-o"></i> dhcn@iuh.edu.vn</li>
+                </ul>
+              </div>
+
+              <div class="footer-col">
+                <h3>Thông tin</h3>
+                <ul>
+                  <li><a href="#">Giới thiệu</a></li>
+                  <li><a href="#">Dịch vụ</a></li>
+                  <li><a href="#">Hoạt động</a></li>
+                  <li><a href="#">Cộng tác viên</a></li>
+                </ul>
+              </div>
+
+              <div class="footer-col">
+                <h3>Chính sách</h3>
+                <ul>
+                  <li><a href="#">Thanh toán</a></li>
+                  <li><a href="#">Vận chuyển</a></li>
+                  <li><a href="#">Đổi trả</a></li>
+                  <li><a href="#">Bảo hành</a></li>
+                </ul>
+              </div>
+
+              <div class="footer-col">
+                <h3>Kết nối</h3>
+                <div class="footer-social-icons">
+                  <a href="#" class="google"><i class='bx bxl-google'></i></a>
+                  <a href="#" class="facebook"><i class='bx bxl-facebook'></i></a>
+                  <a href="#" class="github"><i class='bx bxl-github'></i></a>
+                  <a href="#" class="linkedin"><i class='bx bxl-linkedin'></i></a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="copyright">
+            © 2026 - Nhóm 2
+          </div>
+        </footer>
+    <script src="../js/cart.js"></script>
+  </body>
+</html>
