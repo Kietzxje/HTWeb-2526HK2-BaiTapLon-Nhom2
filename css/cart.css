@@ -1,0 +1,778 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html{
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+}
+
+header {
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    position: relative;
+}
+
+
+    .banner {
+        min-height: 360px;
+        background-size: cover;
+        transition: background-image 0.5s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+
+    .bg.active {
+        opacity: 1;
+    }
+
+    .dots {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 10;
+    }
+
+    .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.5);
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .dot.active {
+        background: rgba(252, 175, 23);
+        transform: scale(1.2);
+    }
+
+    .nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #333;
+        list-style: none;
+        width: 100%;
+        min-height: 70px;
+        position: fixed;
+        top: 0;
+        background: rgba(252, 175, 23, 0.5);
+        z-index: 1000;
+    }
+
+    .logo {
+        height: 60px;
+    }
+
+    .menu li {
+        display: inline-block;
+    }
+
+    .nav:hover {
+        background: #fff;
+        transition: all 0.5s ease;
+    }
+
+    .menu a {
+        display: block;
+        padding: 12px 20px;
+        color: rgba(0,0,0,1);
+        transition: 0.3s;
+        border-radius: 50px;
+        background: rgba(252, 175, 23, 0.1);
+    }
+
+    .menu a:hover {
+        color: #fff;
+        background: rgba(252, 175, 23);
+        transform: translateY(-5px);
+        box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
+    }
+
+        .search {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .search input {
+            margin-left: 100px;
+            padding: 8px;
+            width: 360px;
+            height: 38px;
+            border: 2px solid #ccc;
+            border-radius: 50px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .search input:focus {
+            border-color: rgba(252, 175, 23);
+        }
+
+        .nut {
+            position: absolute;
+            right: 6px;
+            background-color: rgba(252, 175, 23);
+            color: white;
+            border-radius: 100%;
+            border: 0px;
+            height: 28px;
+            width: 28px;
+            cursor: pointer;
+        }
+        .user {
+            padding: 12px 20px;
+            color: rgba(0,0,0,1);
+            transition: 0.3s;
+            border-radius: 50px;
+            background: rgba(252, 175, 23, 0.1);
+            margin-left: 170px;
+        }
+
+        .user:hover {
+            color: #fff;
+            background: rgba(252, 175, 23);
+            transform: translateY(-5px);
+            box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
+        }
+
+
+        .userlogin {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            object-fit: cover;      
+            background-color: #fff;
+            display: block;
+            margin-left: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .userlogin:hover {
+            transform: translateY(-5px);
+            box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
+        }
+            .SignUp_LogIn {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0,0,0,0.4);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s ease;
+            }
+
+            .SignUp_LogIn.show {
+                opacity: 1;
+                visibility: visible;
+                z-index: 1000;
+            }
+
+            .SignUp_LoginBox{
+            position: relative;
+            width: 850px;
+            height: 550px;
+            background: #fff;
+            margin: 20px;
+            border-radius: 30px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, .2);
+            overflow: hidden;
+            }
+
+            .SignUp_LoginBox h1{
+                font-size: 36px;
+                margin: -10px 0;
+            }
+
+            .SignUp_LoginBox p{
+                font-size: 14.5px;
+                margin: 15px 0;
+            }
+
+            .SignUp_LogIn form{ width: 100%; }
+
+            .form-box{
+                position: absolute;
+                right: 0;
+                width: 50%;
+                height: 100%;
+                background: #fff;
+                display: flex;
+                align-items: center;
+                color: #333;
+                text-align: center;
+                padding: 40px;
+                z-index: 1;
+                transition: .6s ease-in-out 1.2s, visibility 0s 1s;
+            }
+
+            .SignUp_LoginBox.active .form-box{ right: 50%; }
+
+            .form-box.register{ visibility: hidden; }
+
+            .SignUp_LoginBox.active .form-box.register{ visibility: visible; }
+
+            .input-box{
+                position: relative;
+                margin: 30px 0;
+            }
+
+            .input-box input{
+                width: 100%;
+                padding: 13px 50px 13px 20px;
+                background: #eee;
+                border-radius: 8px;
+                border: none;
+                outline: none;
+                font-size: 16px;
+                color: #333;
+                font-weight: 500;
+            }
+
+            .input-box input::placeholder{
+                color: #888;
+                font-weight: 400;
+            }
+    
+            .input-box i{
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 20px;
+            }
+
+            .forgot-link{ margin: -15px 0 15px; }
+
+            .forgot-link a{
+                font-size: 14.5px;
+                color: #333;
+            }
+
+            .btn{
+                width: 100%;
+                height: 48px;
+                background: rgba(252, 175, 23);
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+                border: none;
+                cursor: pointer;
+                font-size: 16px;
+                color: #fff;
+                font-weight: 600;
+            }
+
+            .social-icons{
+                display: flex;
+                justify-content: center;
+            }
+
+            .social-icons a{
+                display: inline-flex;
+                padding: 10px;
+                border: 2px solid #ccc;
+                border-radius: 8px;
+                font-size: 24px;
+                color: #333;
+                margin: 0 8px;
+            }
+
+            .toggle-box{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+
+            .toggle-box::before{
+                content: '';
+                position: absolute;
+                left: -250%;
+                width: 300%;
+                height: 100%;
+                background: rgba(252, 175, 23);
+                border-radius: 150px;
+                z-index: 2;
+                transition: 1.8s ease-in-out;
+            }
+
+            .SignUp_LoginBox.active .toggle-box::before{ left: 50%; }
+
+            .toggle-panel{
+                position: absolute;
+                width: 50%;
+                height: 100%;
+                color: #fff;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                z-index: 2;
+                transition: .6s ease-in-out;
+            }
+
+            .toggle-panel.toggle-left{ 
+                left: 0;
+                transition-delay: 1.2s; 
+            }
+
+            .SignUp_LoginBox.active .toggle-panel.toggle-left{
+                left: -50%;
+                transition-delay: .6s;
+            }
+
+            .toggle-panel.toggle-right{ 
+                right: -50%;
+                transition-delay: .6s;
+            }
+
+            .SignUp_LoginBox.active .toggle-panel.toggle-right{
+                right: 0;
+                transition-delay: 1.2s;
+            }
+
+            .toggle-panel h1{ margin-bottom: 20px; }
+
+            .toggle-panel .btn{
+                width: 160px;
+                height: 46px;
+                background: transparent;
+                border: 2px solid #fff;
+                box-shadow: none;
+            }
+
+            @media screen and (max-width: 650px){
+            .SignUp_LoginBox{ height: calc(100vh - 40px); }
+
+            .form-box{
+                bottom: 0;
+                width: 100%;
+                height: 70%;
+            }
+
+            .SignUp_LoginBox.active .form-box{
+                right: 0;
+                bottom: 30%;
+            }
+
+            .toggle-box::before{
+                left: 0;
+                top: -270%;
+                width: 100%;
+                height: 300%;
+                border-radius: 20vw;
+            }
+
+            .SignUp_LoginBox.active .toggle-box::before{
+                left: 0;
+                top: 70%;
+            }
+
+            .SignUp_LoginBox.active .toggle-panel.toggle-left{
+                left: 0;
+                top: -30%;
+            }
+
+            .toggle-panel{ 
+                width: 100%;
+                height: 30%;
+            }
+            .toggle-panel.toggle-left{ top: 0; }
+            .toggle-panel.toggle-right{
+                right: 0;
+                bottom: -30%;
+            }
+
+            .SignUp_LoginBox.active .toggle-panel.toggle-right{ bottom: 0; }
+            }
+
+            @media screen and (max-width: 400px){
+            .form-box { padding: 20px; }
+
+            .toggle-panel h1{font-size: 30px; }
+            }
+
+.products button {
+    background-color: black;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.titlecard {
+    color: black;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    gap: 20px;
+}
+
+.sidebar {
+    width: 25%;
+    background: white;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.sidebar h2 {
+    margin-bottom: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    display: flex;
+    gap: 10px;
+    padding: 10px 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.sidebar li img {
+    width: 60px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.sinfo h3 {
+    font-size: 14px;
+}
+
+.sinfo p {
+    color: red;
+    font-weight: bold;
+}
+
+.sidebar a {
+    color: #000;
+    display: flex;
+}
+
+.sidebar a:hover {
+    color: darkgreen;
+}
+
+.sidebar li:hover {
+    transition: 0.5s;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 30px;
+}
+
+.section {
+    width: 600px;
+
+}
+.main {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.card {
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: 0.3s;
+    cursor: pointer;
+    
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 400px; 
+    object-fit: cover;
+}
+
+.card .info {
+    padding: 10px;
+}
+
+.card .info h2 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.card .info p {
+    color: red;
+    font-weight: bold;
+    width: 100%;
+}
+
+.slot1, .slot2, .slot3{
+    position: relative;
+} 
+
+.card .info .titlecard {
+    text-transform: uppercase;
+}
+
+.card .info .titlecard:hover {
+    color: darkgreen;
+}
+
+#footer {
+    background: #1f1f1f;
+    color: #ccc;
+    margin-top: 50px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    padding: 40px 20px;
+}
+
+.footer-col h3 {
+    color: #fff;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.footer-col h3::after {
+    content: "";
+    width: 40px;
+    height: 3px;
+    background: rgba(252, 175, 23);
+    display: block;
+    margin-top: 5px;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.footer-col a {
+    color: #ccc;
+    transition: 0.3s;
+}
+
+.footer-col a:hover {
+    color: rgba(252, 175, 23);
+}
+
+.footer-col i {
+    margin-right: 8px;
+    color: rgba(252, 175, 23);
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #333;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.footer-social-icons a i {
+    margin: 0;
+    color: #fff;
+}
+
+.footer-social-icons a.facebook:hover {
+    background: #1877f2;
+}
+
+.footer-social-icons a.google:hover {
+    background: #ea4335;
+}
+
+.footer-social-icons a.github:hover {
+    background: #fff;
+}
+
+.footer-social-icons a.github:hover i.bxl-github {
+    color: #000;
+}
+
+.footer-social-icons a.linkedin:hover {
+    background: #0a66c2;
+}
+
+.footer-social-icons a:hover {
+    transform: translateY(-5px);
+}
+
+.copyright {
+    text-align: center;
+    padding: 15px;
+    background: #111;
+    font-size: 14px;
+    color: #aaa;
+}
+
+#cart {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+#cart h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #222;
+    position: relative;
+}
+
+#cart h2::after {
+    content: "";
+    width: 40px;
+    height: 3px;
+    background: #fcae17;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    border-radius: 2px;
+}
+
+
+#cart table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+
+#cart th {
+    font-size: 13px;
+    color: #666;
+    padding: 8px;
+    text-align: center;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+#cart td {
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+}
+
+
+#cart tbody tr:hover {
+    background: #f9f9f9;
+}
+#cart td:first-child {
+    text-align: left;
+    font-weight: 500;
+}
+#cart td button {
+    background: #f1f1f1;
+    border: none;
+    padding: 4px 8px;
+    margin: 0 3px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#cart td button:hover {
+    background: #fcae17;
+    color: white;
+}
+#cart td button:last-child {
+    background: #ff4d4f;
+    color: white;
+}
+
+#cart td button:last-child:hover {
+    background: #d9363e;
+}
+#cart h3 {
+    text-align: right;
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+#total-price {
+    color: #fcae17;
+    font-weight: bold;
+    font-size: 22px;
+}
+#cart > button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    background: linear-gradient(45deg, #fcae17, #ffcc33);
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#cart > button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
